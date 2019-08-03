@@ -1,15 +1,18 @@
 # Exploring Titanic Data Set
 
+
 ### Loading Libraries
 
 import pandas as pd
 import numpy as np
 
-### Loading Data Set
+
+### Loading Data Set (Titanic Data Set from Kaggle: https://www.kaggle.com/c/titanic)
 
 train = pd.read_excel('Titanic_Test.xlsx')
 
 test = pd.read_excel('Titanic_Test.xlsx')
+
 
 ### Data Exploration
 
