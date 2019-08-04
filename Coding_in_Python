@@ -14,8 +14,14 @@ train = pd.read_excel('Titanic_Test.xlsx')
 test = pd.read_excel('Titanic_Test.xlsx')
 
 
-### Data Exploration
+### Data Preparation
 
-train.head()
+# convert data type to 'category' for PassengerId, Pclass, Ticket, Name and Embarked
 
-train.describe()
+train[['PassengerId','Pclass','Ticket','Name','Embarked']] = train[['PassengerId','Pclass','Ticket','Name','Embarked']].astype('category')
+
+
+# delete irrelevant features: PassengerId and Ticket redundant, Cabin too many missing values
+
+train.drop(['PassengerId','Cabin','Ticket'],axis=1, inplace=True)
+
