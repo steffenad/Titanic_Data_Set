@@ -5,6 +5,9 @@
 
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
 
 
 ### Loading Data Set (Titanic Data Set from Kaggle: https://www.kaggle.com/c/titanic)
@@ -24,4 +27,20 @@ train[['PassengerId','Pclass','Ticket','Name','Embarked']] = train[['PassengerId
 # delete irrelevant features: PassengerId and Ticket redundant, Cabin too many missing values
 
 train.drop(['PassengerId','Cabin','Ticket'],axis=1, inplace=True)
+
+
+# Missing values
+
+
+# Any missing values?
+
+train.isnull().values.any()
+
+# Total missing values for each feature
+
+train.isnull().sum()
+
+#plotting missing values
+
+sns.heatmap(train.isnull(),yticklabels=False,cbar=False)
 
