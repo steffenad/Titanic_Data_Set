@@ -13,34 +13,27 @@ import seaborn as sns
 ### Loading Data Set (Titanic Data Set from Kaggle: https://www.kaggle.com/c/titanic)
 
 train = pd.read_excel('Titanic_Test.xlsx')
-
 test = pd.read_excel('Titanic_Test.xlsx')
 
 
 ### Data Preparation
 
 # convert data type to 'category' for PassengerId, Pclass, Ticket, Name and Embarked
-
 train[['PassengerId','Pclass','Ticket','Name','Embarked']] = train[['PassengerId','Pclass','Ticket','Name','Embarked']].astype('category')
 
 
 # delete irrelevant features: PassengerId and Ticket redundant, Cabin too many missing values
-
 train.drop(['PassengerId','Cabin','Ticket'],axis=1, inplace=True)
 
 
 # Missing values
 
-
 # Any missing values?
-
 train.isnull().values.any()
 
 # Total missing values for each feature
-
 train.isnull().sum()
 
 #plotting missing values
-
 sns.heatmap(train.isnull(),yticklabels=False,cbar=False)
 
