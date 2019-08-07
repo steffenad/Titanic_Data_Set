@@ -37,3 +37,8 @@ train.isnull().sum()
 #plotting missing values
 sns.heatmap(train.isnull(),yticklabels=False,cbar=False)
 
+#observations with missing values for variable "Fare"
+train[train['Fare'].isnull()]
+
+# deleting one observation with missing value for "Fare"
+train.drop([152],inplace=True)
