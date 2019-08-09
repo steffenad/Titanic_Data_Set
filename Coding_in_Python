@@ -28,6 +28,7 @@ train.drop(['PassengerId','Cabin','Ticket'],axis=1, inplace=True)
 
 # Missing values
 
+
 # Any missing values?
 train.isnull().values.any()
 
@@ -42,3 +43,9 @@ train[train['Fare'].isnull()]
 
 # deleting one observation with missing value for "Fare"
 train.drop([152],inplace=True)
+
+# imputing mean for missing values in "Age"
+train['Age'] = train['Age'].fillna(value=train['Age'].mean())
+
+#plotting missing values now
+sns.heatmap(train.isnull(),yticklabels=False,cbar=False)
