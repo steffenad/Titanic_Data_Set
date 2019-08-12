@@ -19,7 +19,7 @@ test = pd.read_excel('Titanic_Test.xlsx')
 ### Data Preparation
 
 # convert data type to 'category' for PassengerId, Pclass, Ticket, Name and Embarked
-train[['PassengerId','Pclass','Ticket','Name','Embarked']] = train[['PassengerId','Pclass','Ticket','Name','Embarked']].astype('category')
+train[['Survived','PassengerId','Pclass','Ticket','Name','Embarked']] = train[['Survived','PassengerId','Pclass','Ticket','Name','Embarked']].astype('category')
 
 
 # delete irrelevant features: PassengerId and Ticket redundant, Cabin too many missing values
@@ -49,3 +49,14 @@ train['Age'] = train['Age'].fillna(value=train['Age'].mean())
 
 #plotting missing values now
 sns.heatmap(train.isnull(),yticklabels=False,cbar=False)
+
+
+
+### Data Exploration and Visualisation
+
+
+#plotting Survivals
+sns.countplot(x="Survived",data=train)
+
+#plotting Survivals and Gender
+sns.countplot(x='Survived',data=train,hue='Sex')
