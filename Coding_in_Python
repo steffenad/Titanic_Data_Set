@@ -60,3 +60,6 @@ sns.countplot(x="Survived",data=train)
 
 #plotting Survivals and Gender
 sns.countplot(x='Survived',data=train,hue='Sex')
+
+#plotting Survivals and Class
+sns.countplot(x='Survived',data=train, hue='Pclass')
