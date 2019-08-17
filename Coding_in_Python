@@ -54,6 +54,7 @@ sns.heatmap(train.isnull(),yticklabels=False,cbar=False)
 
 ### Data Exploration and Visualisation
 
+#Survivals
 
 #plotting Survivals
 sns.countplot(x="Survived",data=train)
@@ -66,6 +67,10 @@ sns.countplot(x='Survived',data=train, hue='Pclass')
 
 #plotting Survivals separated in 2 two grids for different passenger classes
 sns.catplot(x='Pclass',data=train,hue='Sex',col='Survived',kind='count')
+
+
+#Age and Pclass
+sns.boxplot(x='Pclass',y='Age',data=train)
 
 #plotting distribution for 'Fare'
 sns.distplot(train['Fare'],bins=30,kde=False,color='red')
