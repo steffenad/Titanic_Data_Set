@@ -66,3 +66,6 @@ sns.countplot(x='Survived',data=train, hue='Pclass')
 
 #plotting Survivals separated in 2 two grids for different passenger classes
 sns.catplot(x='Pclass',data=train,hue='Sex',col='Survived',kind='count')
+
+#plotting distribution for 'Fare'
+sns.distplot(train['Fare'],bins=30,kde=False,color='red')
