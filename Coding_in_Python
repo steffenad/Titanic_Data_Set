@@ -75,5 +75,6 @@ sns.boxplot(x='Pclass',y='Age',data=train)
 #number of male and female passengers
 sns.countplot(x='Sex',data=train)
 
-#plotting distribution for 'Fare'
-sns.distplot(train['Fare'],bins=30,kde=False,color='red')
+#distribution for 'Age' and 'Fare'
+train['Fare'].hist(grid=False)
+train['Age'].hist(grid=False)
