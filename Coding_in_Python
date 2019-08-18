@@ -51,6 +51,14 @@ train['Age'] = train['Age'].fillna(value=train['Age'].mean())
 sns.heatmap(train.isnull(),yticklabels=False,cbar=False)
 
 
+#change names for feature "Survived"
+def change(parameter):
+    if parameter == 1:
+        return 'Survived'
+    else:
+        return 'Died'
+train['Survived']= list(map(change,train['Survived']))
+
 
 ### Data Exploration and Visualisation
 
