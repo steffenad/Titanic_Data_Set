@@ -59,6 +59,15 @@ def change(parameter):
         return 'Died'
 train['Survived']= list(map(change,train['Survived']))
 
+#include 'children' into gender column
+def person (age, gender):
+    if age < 18:
+        return 'child'
+    else:
+        return gender
+        
+train['Person'] = list(map(person,train['Age'],train['Sex']))
+train = train.drop('Sex',axis=1)
 
 ### Data Exploration and Visualisation
 
@@ -67,21 +76,22 @@ train['Survived']= list(map(change,train['Survived']))
 #plotting Survivals
 sns.countplot(x="Survived",data=train)
 
-#plotting Survivals and Gender
-sns.countplot(x='Survived',data=train,hue='Sex')
+#How many male, female passengers and childen were on board?
+sns.countplot(x="Person",data=train)
+
+#How many males, females and children were in different ship classes?
+sns.countplot(x="Person",hue="Pclass",data=train)
 
 #plotting Survivals and Class
 sns.countplot(x='Survived',data=train, hue='Pclass')
 
 #plotting Survivals separated in 2 two grids for different passenger classes
-sns.catplot(x='Pclass',data=train,hue='Sex',col='Survived',kind='count')
+sns.catplot(x='Pclass',data=train,hue='Person',col='Survived',kind='count')
 
 
 #age of passengers and its distribution per class
 sns.boxplot(x='Pclass',y='Age',data=train)
 
-#number of male and female passengers
-sns.countplot(x='Sex',data=train)
 
 #distribution for 'Age' and 'Fare'
 train['Fare'].hist(grid=False)
