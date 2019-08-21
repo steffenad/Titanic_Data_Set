@@ -69,7 +69,9 @@ def person (age, gender):
 train['Person'] = list(map(person,train['Age'],train['Sex']))
 train = train.drop('Sex',axis=1)
 
+
 ### Data Exploration and Visualisation
+
 
 #Survivals
 
@@ -96,3 +98,13 @@ sns.boxplot(x='Pclass',y='Age',data=train)
 #distribution for 'Age' and 'Fare'
 train['Fare'].hist(grid=False)
 train['Age'].hist(grid=False)
+
+
+Modelling Process
+
+#Separating Data Set into training and testing data
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(train.drop('Survived',axis=1), 
+                                                    train['Survived'], test_size=0.30, 
+                                                    random_state=101)
