@@ -99,6 +99,10 @@ sns.boxplot(x='Pclass',y='Age',data=train)
 train['Fare'].hist(grid=False)
 train['Age'].hist(grid=False)
 
+Data Preparation
+
+#change data type
+
 
 Modelling Process
 
