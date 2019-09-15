@@ -62,7 +62,8 @@ def change(parameter):
         return 'Died'
 train['Survived']= list(map(change,train['Survived']))
 
-#include 'children' into gender column
+#function: include 'children' into gender column
+
 def person (age, gender):
     if age < 18:
         return 'child'
