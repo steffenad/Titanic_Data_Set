@@ -116,7 +116,7 @@ train.drop(['Person','Embarked'],axis=1,inplace=True)
 train = pd.concat([train,sex,embarked],axis=1)
 
 
-Modelling Process
+#Modelling Process
 
 #Separating Data Set into training and testing data
 from sklearn.model_selection import train_test_split
